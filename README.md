@@ -1,58 +1,76 @@
-# OpenWeatherMap Weather Station Heatmap
+# Weather Station Map
 
-An interactive map visualization that displays nearby weather stations using a heatmap. The application uses the user's location to find weather stations in the surrounding area.
+An interactive web map that displays nearby weather stations using the **OpenWeatherMap API** and **Leaflet.js**. The application uses the user's browser location to find nearby weather stations and displays them as interactive markers.
 
 ## Preview
 
-![OpenWeatherMap Weather Station Heatmap](screenshot-heatmap.png)
+![Weather Station Map](screenshot-map.png)
 
 ## Features
 
-* Interactive Leaflet map
-* Browser-based geolocation
-* Weather station data from OpenWeatherMap
-* Heatmap visualization of nearby stations
-* Automatic map positioning based on the user's location
-* Fallback location for Castellón, Spain when geolocation is unavailable
+* 📍 Uses browser geolocation to detect the user's location
+* 🌦️ Retrieves nearby weather stations from the OpenWeatherMap API
+* 🗺️ Displays weather stations on an interactive Leaflet map
+* 📌 Uses marker clustering to organize multiple nearby stations
+* 🌡️ Shows the station name and temperature when a marker is clicked
+* 🔄 Automatically loads weather stations based on the user's current location
+* 🖥️ Responsive full-screen map interface
 
-## Technologies
+## Technologies Used
 
 * HTML5
 * CSS3
 * JavaScript
 * Leaflet.js
+* Leaflet MarkerCluster
 * OpenWeatherMap API
-* Leaflet Heatmap
 * Browser Geolocation API
 
 ## How It Works
 
-The application first attempts to obtain the user's current location through the browser Geolocation API.
+When the application is opened, it requests permission to access the user's location through the browser's Geolocation API.
 
-The latitude and longitude are then used to request nearby weather stations from OpenWeatherMap. The returned station coordinates are converted into heatmap data and displayed on an interactive Leaflet map.
+Once the location is available, the application sends the latitude and longitude to the OpenWeatherMap API and requests nearby weather stations.
 
-If the user's location cannot be obtained, the application falls back to Castellón, Spain.
+The returned stations are displayed on the Leaflet map using clustered markers. Each marker contains a popup showing the weather station's name and its current temperature.
 
 ## API Key
 
-The OpenWeatherMap API key is intentionally not included in this repository.
+This project uses the OpenWeatherMap API.
 
-To run the project, open `script.js` and replace:
+For security, the API key is not included in this repository. Before running the project, replace the placeholder in `index.html` with your own OpenWeatherMap API key:
 
 ```javascript
-const API_KEY = "YOUR_OPENWEATHER_API_KEY_HERE";
+var OWM_key = "YOUR_OPENWEATHER_API_KEY_HERE";
 ```
 
-with your own OpenWeatherMap API key.
+**Do not publish your personal API key on GitHub.**
 
 ## How to Run
 
 1. Clone or download this repository.
-2. Add your OpenWeatherMap API key to `script.js`.
-3. Open `index.html` using a local development server.
-4. Allow location access when prompted.
-5. Explore the interactive weather station heatmap.
+2. Open `index.html` in a web browser.
+3. Allow the browser to access your location when prompted.
+4. The map will automatically load nearby weather stations.
+5. Click a marker to view the station name and temperature.
 
-## Purpose
+For best results, run the project using a local development server such as VS Code Live Server.
 
-This project was created to practice working with external APIs, browser geolocation, interactive maps, and geographical data visualization using JavaScript and Leaflet.
+## Project Structure
+
+```text
+weather-station-map/
+├── index.html
+├── README.md
+└── screenshot-map.png
+```
+
+## Project Purpose
+
+This project demonstrates how web mapping technologies and external APIs can be combined to create an interactive location-based application. It provides experience with Leaflet.js, API requests, browser geolocation, interactive map markers, and marker clustering.
+
+## Author
+
+Developed as a web mapping and data visualization project.
+
+
